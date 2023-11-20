@@ -1,0 +1,67 @@
+.header {
+  background:#af1313;
+  padding: 0;
+  border-bottom: 1px solid #e72929;
+}
+
+.header a {
+  color: white;
+  background-color: #af1313;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background: rgb(56, 54, 54);
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.header ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+}
+
+.header ul a {
+  padding: 1rem;
+  display: inline-block;
+}
+
+.menu_container {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  z-index: 1001;
+  background-color: whitesmoke;
+  display: none;
+}
+
+.menu_container:hover .menu {
+  display: block;
+}
+
+.menu a {
+  width: 100%;
+  min-width: 8rem;
+}
+
+.cart_count {
+  background-color: white;
+  color: #af1313;
+  padding: 0.1rem 0.45rem;
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
