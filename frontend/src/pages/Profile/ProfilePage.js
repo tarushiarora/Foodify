@@ -6,6 +6,7 @@ import Title from '../../components/Title/Title';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import ChangePassword from '../../components/ChangePassword/ChangePassword';
+import axios from 'axios';
 
 export default function ProfilePage() {
   const {
@@ -16,8 +17,35 @@ export default function ProfilePage() {
 
   const { user, updateProfile } = useAuth();
 
-  const submit = user => {
+  const submit = (user) => {
     updateProfile(user);
+  };
+
+  const handleDeleteAccount = async () => {
+    console.log('Deleting account...');
+
+    try {
+      const userId = user.id;
+
+      if (!userId) {
+        console.error('User ID is missing.');
+        return;
+      }
+
+      console.log('User ID:', userId);
+
+      // Make a DELETE request to the backend to delete the account
+      await axios.delete(`/api/users/deleteAccount`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`, // Include the user's token
+        },
+      });
+
+      // Optionally, you can redirect the user or perform other actions after deletion
+    } catch (error) {
+      // Handle errors, e.g., display an error message
+      console.error(error.response.data.message);
+    }
   };
 
   return (
@@ -50,6 +78,9 @@ export default function ProfilePage() {
         </form>
 
         <ChangePassword />
+
+        {/* Add the "Delete Account" button */}
+        <Button onClick={handleDeleteAccount} text="Delete Account" backgroundColor="#ff0000" />
       </div>
     </div>
   );

@@ -12,7 +12,9 @@ export const dbconnect = async () => {
     connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      dbName:'foodmine',
     });
+    
     await seedUsers();
     await seedFoods();
     console.log('connect successfully---');
