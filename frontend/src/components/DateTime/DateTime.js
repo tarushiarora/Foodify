@@ -1,5 +1,4 @@
 import React from 'react';
-
 DateTime.defaultProps = {
   options: {
     weekday: 'short',
