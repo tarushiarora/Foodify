@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: ['https://foodify-pi.vercel.app/'],
+    origin: ['https://foodify-five-eta.vercel.app/'],
   })
 );
 
